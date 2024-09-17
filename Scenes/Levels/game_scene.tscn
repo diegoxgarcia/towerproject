@@ -123,6 +123,8 @@ offset_bottom = 161.0
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 11.0
+mouse_force_pass_scroll_events = false
 text = "Spawn Tower"
 
 [connection signal="timeout" from="Path/Timer" to="Path" method="_on_timer_timeout"]
+[connection signal="pressed" from="UI/Main/SpawnMenu/SpawnTower" to="." method="_on_spawn_tower_pressed"]
