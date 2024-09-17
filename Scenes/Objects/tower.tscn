@@ -1,0 +1,237 @@
+[gd_scene load_steps=20 format=3 uid="uid://cie1ej7ftah1t"]
+
+[ext_resource type="Texture2D" uid="uid://b4lgreeffcstj" path="res://Assets/Tilesheet/towerDefense_tilesheet.png" id="1_5pcqo"]
+[ext_resource type="Script" path="res://Scenes/Objects/tower.gd" id="1_tbs8i"]
+[ext_resource type="PackedScene" uid="uid://b1dstp8aak863" path="res://Scenes/Objects/bullet.tscn" id="2_awe1h"]
+[ext_resource type="PackedScene" uid="uid://btwjq2v7f8eur" path="res://Scenes/Components/attack_area.tscn" id="2_dpvy8"]
+[ext_resource type="Texture2D" uid="uid://dci6imt2futv4" path="res://Assets/PNG/Default size/D47A0B5F-568F-4B61-90FB-90C196EB63BE.png" id="4_tx8fa"]
+[ext_resource type="AudioStream" uid="uid://bdbisa5dy1tew" path="res://Scenes/Audio/explosion.wav" id="6_dwnjm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ru0rt"]
+radius = 30.0167
+
+[sub_resource type="Gradient" id="Gradient_uao3c"]
+offsets = PackedFloat32Array(0, 0.482574, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.482574, 0.482574, 0.482574, 1, 0.368479, 0.368479, 0.368479, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_88tdb"]
+gradient = SubResource("Gradient_uao3c")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lup4v"]
+particle_flag_disable_z = true
+initial_velocity_min = 99.8
+initial_velocity_max = 341.31
+gravity = Vector3(0, 0, 0)
+damping_min = 62.475
+damping_max = 100.0
+color_ramp = SubResource("GradientTexture1D_88tdb")
+
+[sub_resource type="Gradient" id="Gradient_va1tf"]
+offsets = PackedFloat32Array(0, 0.276139, 0.546917, 0.806971)
+colors = PackedColorArray(0.980392, 0, 0, 1, 0.770011, 0.335756, 0.0704158, 1, 0.945098, 0.372549, 0.027451, 1, 1, 1, 0.105882, 0.678431)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_m6f8e"]
+gradient = SubResource("Gradient_va1tf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h586s"]
+particle_flag_disable_z = true
+spread = 15.248
+initial_velocity_min = 107.79
+initial_velocity_max = 415.18
+gravity = Vector3(0, 0, 0)
+scale_max = 2.0
+color_ramp = SubResource("GradientTexture1D_m6f8e")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4miwk"]
+resource_local_to_scene = true
+radius = 154.0
+
+[sub_resource type="Animation" id="Animation_p8kik"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Turret/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Turret/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0472]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_lvbrq"]
+resource_name = "idle"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Turret/Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0472, 2.0944]
+}
+
+[sub_resource type="Animation" id="Animation_i2vfm"]
+resource_name = "shoot"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Turret/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(0.5, 2, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-11, 0), Vector2(0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Turret/ShootPosition/SmokeParticles2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"restart"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Turret/ShootPosition/FireParticles2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"restart"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_815vn"]
+_data = {
+"RESET": SubResource("Animation_p8kik"),
+"idle": SubResource("Animation_lvbrq"),
+"shoot": SubResource("Animation_i2vfm")
+}
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_p6h8p"]
+random_pitch = 1.44
+streams_count = 1
+stream_0/stream = ExtResource("6_dwnjm")
+stream_0/weight = 0.526
+
+[node name="Tower" type="Area2D"]
+script = ExtResource("1_tbs8i")
+bullet_scene = ExtResource("2_awe1h")
+
+[node name="Base" type="Sprite2D" parent="."]
+texture = ExtResource("1_5pcqo")
+hframes = 23
+vframes = 13
+frame = 269
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ru0rt")
+
+[node name="Turret" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Turret"]
+rotation = 1.0472
+texture = ExtResource("1_5pcqo")
+hframes = 23
+vframes = 13
+frame = 250
+region_enabled = true
+region_rect = Rect2(0, 0, 1472, 832)
+
+[node name="ShootPosition" type="Marker2D" parent="Turret"]
+position = Vector2(33, 0)
+
+[node name="SmokeParticles2D" type="GPUParticles2D" parent="Turret/ShootPosition"]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_lup4v")
+texture = ExtResource("4_tx8fa")
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+
+[node name="FireParticles2D" type="GPUParticles2D" parent="Turret/ShootPosition"]
+emitting = false
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_h586s")
+lifetime = 0.3
+one_shot = true
+
+[node name="AttackArea" parent="." instance=ExtResource("2_dpvy8")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CircleShape2D_4miwk")
+debug_color = Color(0.842131, 0.304441, 0.592139, 0.42)
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_815vn")
+}
+autoplay = "idle"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_p6h8p")
+volume_db = -12.106
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

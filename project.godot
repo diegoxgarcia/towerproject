@@ -1,0 +1,38 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="TowerProject"
+run/main_scene="res://Scenes/Levels/game_scene.tscn"
+config/features=PackedStringArray("4.3", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*res://Scenes/Globals/game_manager.gd"
+
+[file_customization]
+
+folder_colors={
+"res://Assets/": "orange",
+"res://Scenes/": "blue"
+}
+
+[layer_names]
+
+2d_physics/layer_1="Tower"
+2d_physics/layer_2="Enemy"
+2d_physics/layer_3="AttackArea"
+2d_physics/layer_4="Bullet"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

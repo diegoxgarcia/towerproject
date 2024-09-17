@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://8dia8u2vk4hp"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/enemy.gd" id="1_ut0pk"]
+[ext_resource type="Texture2D" uid="uid://ciu0gfl5f02vs" path="res://Assets/PNG/Default size/towerDefense_tile271.png" id="2_8lfs5"]
+[ext_resource type="Texture2D" uid="uid://bqh1wmmdyuq7o" path="res://Assets/PNG/Default size/towerDefense_tile295.png" id="3_wqoqu"]
+[ext_resource type="Texture2D" uid="uid://3smy3c0gi7hn" path="res://Assets/PNG/Default size/towerDefense_tile296.png" id="4_g1ifi"]
+[ext_resource type="Texture2D" uid="uid://c4lxu7ls1kwbl" path="res://Assets/PNG/Default size/towerDefense_tile297.png" id="5_dt86k"]
+[ext_resource type="Texture2D" uid="uid://bq1hjrg4y6wak" path="res://Assets/PNG/Default size/towerDefense_tile298.png" id="6_dfhpk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ukrbr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8lfs5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_dt86k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wqoqu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dfhpk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_g1ifi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dfhpk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wqoqu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dt86k")
+}],
+"loop": false,
+"name": &"explote",
+"speed": 5.0
+}]
+
+[node name="Enemy" type="PathFollow2D"]
+script = ExtResource("1_ut0pk")
+
+[node name="ExplodeAnimation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ukrbr")
+autoplay = "default"
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 12
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox"]
+polygon = PackedVector2Array(-23, -15, -12, -15, -11, -6, -3, -5, -2, -30, 12, -30, 11, -6, 22, -7, 26, -4, 26, 6, 20, 11, 15, 11, 13, 32, -2, 33, -3, 8, -10, 8, -12, 16, -24, 16)
+
+[connection signal="animation_finished" from="ExplodeAnimation" to="." method="_on_explode_animation_animation_finished"]
