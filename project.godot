@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 GameManager="*res://Scenes/Globals/game_manager.gd"
 
+[display]
+
+window/size/borderless=true
+window/stretch/mode="canvas_items"
+
 [file_customization]
 
 folder_colors={

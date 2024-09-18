@@ -21,6 +21,7 @@ func _process(delta):
 
 func update_score(score : int):
 	score_label.text = "Score: " + str(score)
+	pass
 
 func update_wave_progrees(enemy_count : int):
 	wave_progress.value = enemy_count
@@ -30,9 +31,12 @@ func update_wave_progrees(enemy_count : int):
 func on_map_clicked(pos : Vector2):
 	spawn_menu.show()
 	spawn_menu.global_position = pos
+	pass
 	
+func _on_game_scene_tower_created():
+	spawn_menu.hide()
+	pass # Replace with function body.
+
 	
-	# TODO Hay que spawnear la torreta en la posicion indicada
-	# TODO luego hay que hacer desaparecer el menu
 	# TODO Si entras dentro del area (mouse_entered) que se abra un menu para moverlo o eliminar
 	# TODO o clickeas en la torre y se abre el panel Gui_input con un control sobre la torre
