@@ -233,5 +233,30 @@ autoplay = "idle"
 stream = SubResource("AudioStreamRandomizer_p6h8p")
 volume_db = -12.106
 
+[node name="ClickArea" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -29.0
+offset_top = -24.0
+offset_right = 28.0
+offset_bottom = 28.0
+
+[node name="TowerOptions" type="Panel" parent="ClickArea"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DeleteButton" type="Button" parent="ClickArea/TowerOptions"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="CloseButton" type="Button" parent="ClickArea/TowerOptions"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="gui_input" from="ClickArea" to="." method="_on_click_area_gui_input"]

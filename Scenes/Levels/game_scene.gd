@@ -4,6 +4,9 @@ var tower = preload("res://Scenes/Objects/tower.tscn")
 
 signal map_clicked(pos)
 signal tower_created()
+signal tower_removed()
+var tower_selected = null
+@onready var ui = $UI
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,4 +27,12 @@ func _on_spawn_tower_pressed():
 	new_tower.position = get_global_mouse_position()
 	tower_created.emit()
 	get_tree().root.add_child.call_deferred(new_tower)
+	new_tower.tower_clicked.connect(ui.on_tower_clicked)
+	pass # Replace with function body.
+
+func _on_move_tower_pressed():
+	pass # Replace with function body.
+
+func _on_remove_tower_pressed():
+	tower_selected.queue_free()
 	pass # Replace with function body.

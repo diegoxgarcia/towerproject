@@ -14,8 +14,8 @@ extends Area2D
 @onready var animation_player = $AnimationPlayer
 
 var enemies : Array[Enemy] = []
-
 var can_shoot : bool = true
+signal tower_clicked(tower : Tower)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -78,4 +78,11 @@ func _on_shoot_timer_timeout():
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "shoot":
 		animation_player.play("idle")
+	pass # Replace with function body.
+
+
+func _on_click_area_gui_input(event):
+	if event is InputEventMouseButton:
+		if event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
+			tower_clicked.emit(self)
 	pass # Replace with function body.
