@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://so7xny7lrgvg"]
+[gd_scene load_steps=13 format=3 uid="uid://so7xny7lrgvg"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/game_scene.gd" id="1_ht6pd"]
 [ext_resource type="PackedScene" uid="uid://cie1ej7ftah1t" path="res://Scenes/Objects/tower.tscn" id="1_layhi"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b4lgreeffcstj" path="res://Assets/Tilesheet/towerDefense_tilesheet.png" id="4_pve8t"]
 [ext_resource type="Script" path="res://Scenes/Levels/ui.gd" id="6_eumci"]
 [ext_resource type="Texture2D" uid="uid://beky25dr4gtfv" path="res://Assets/grass_template2.jpg" id="8_wsr7e"]
+[ext_resource type="PackedScene" uid="uid://dfv43mturl5ni" path="res://Scenes/Objects/fish.tscn" id="9_ekbcw"]
 
 [sub_resource type="Curve2D" id="Curve2D_868cp"]
 _data = {
@@ -158,6 +159,9 @@ offset_top = 32.0
 offset_right = 194.0
 offset_bottom = 64.0
 text = "Move Tower"
+
+[node name="Fish" parent="." instance=ExtResource("9_ekbcw")]
+position = Vector2(67, 534)
 
 [connection signal="tower_created" from="." to="UI" method="_on_game_scene_tower_created"]
 [connection signal="timeout" from="Path/Timer" to="Path" method="_on_timer_timeout"]

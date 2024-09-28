@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://dfv43mturl5ni"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/fish.gd" id="1_1jmo5"]
+[ext_resource type="PackedScene" uid="uid://b1dstp8aak863" path="res://Scenes/Objects/bullet.tscn" id="2_b4041"]
+[ext_resource type="Script" path="res://Scenes/Resources/fish_data.gd" id="2_pls0r"]
+[ext_resource type="Texture2D" uid="uid://b46oapdhk5bg1" path="res://icon.svg" id="3_slrur"]
+
+[sub_resource type="Resource" id="Resource_0m15r"]
+script = ExtResource("2_pls0r")
+texture = ExtResource("3_slrur")
+min_threshold = 200.0
+weight = 250.0
+longitude = 2.0
+rarity = 2
+speed = 1000.0
+name = "Pepe"
+aggressivity = 0.8
+bait_type = 2
+power = ExtResource("2_b4041")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_psu0r"]
+
+[node name="Fish" type="Area2D"]
+script = ExtResource("1_1jmo5")
+fish_data = SubResource("Resource_0m15r")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_slrur")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_psu0r")
