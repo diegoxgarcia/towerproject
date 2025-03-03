@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://dfv43mturl5ni"]
 
-[ext_resource type="Script" path="res://Scenes/Objects/fish.gd" id="1_1jmo5"]
+[ext_resource type="Script" uid="uid://c1f7i8x3vmecg" path="res://Scenes/Objects/fish.gd" id="1_1jmo5"]
 [ext_resource type="PackedScene" uid="uid://b1dstp8aak863" path="res://Scenes/Objects/bullet.tscn" id="2_b4041"]
-[ext_resource type="Script" path="res://Scenes/Resources/fish_data.gd" id="2_pls0r"]
+[ext_resource type="Script" uid="uid://weqs6h5k8rx4" path="res://Scenes/Resources/fish_data.gd" id="2_pls0r"]
 [ext_resource type="Texture2D" uid="uid://b46oapdhk5bg1" path="res://icon.svg" id="3_slrur"]
 
 [sub_resource type="Resource" id="Resource_0m15r"]

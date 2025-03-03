@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://cie1ej7ftah1t"]
 
 [ext_resource type="Texture2D" uid="uid://b4lgreeffcstj" path="res://Assets/Tilesheet/towerDefense_tilesheet.png" id="1_5pcqo"]
-[ext_resource type="Script" path="res://Scenes/Objects/tower.gd" id="1_tbs8i"]
+[ext_resource type="Script" uid="uid://1eypnpnia7px" path="res://Scenes/Objects/tower.gd" id="1_tbs8i"]
 [ext_resource type="PackedScene" uid="uid://b1dstp8aak863" path="res://Scenes/Objects/bullet.tscn" id="2_awe1h"]
 [ext_resource type="PackedScene" uid="uid://btwjq2v7f8eur" path="res://Scenes/Components/attack_area.tscn" id="2_dpvy8"]
 [ext_resource type="Texture2D" uid="uid://dci6imt2futv4" path="res://Assets/PNG/Default size/D47A0B5F-568F-4B61-90FB-90C196EB63BE.png" id="4_tx8fa"]
@@ -161,9 +161,9 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_815vn"]
 _data = {
-"RESET": SubResource("Animation_p8kik"),
-"idle": SubResource("Animation_lvbrq"),
-"shoot": SubResource("Animation_i2vfm")
+&"RESET": SubResource("Animation_p8kik"),
+&"idle": SubResource("Animation_lvbrq"),
+&"shoot": SubResource("Animation_i2vfm")
 }
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_p6h8p"]
@@ -201,18 +201,18 @@ position = Vector2(33, 0)
 
 [node name="SmokeParticles2D" type="GPUParticles2D" parent="Turret/ShootPosition"]
 emitting = false
-process_material = SubResource("ParticleProcessMaterial_lup4v")
 texture = ExtResource("4_tx8fa")
 one_shot = true
 explosiveness = 1.0
 randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_lup4v")
 
 [node name="FireParticles2D" type="GPUParticles2D" parent="Turret/ShootPosition"]
 emitting = false
 amount = 50
-process_material = SubResource("ParticleProcessMaterial_h586s")
 lifetime = 0.3
 one_shot = true
+process_material = SubResource("ParticleProcessMaterial_h586s")
 
 [node name="AttackArea" parent="." instance=ExtResource("2_dpvy8")]
 
@@ -225,7 +225,7 @@ wait_time = 2.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_815vn")
+&"": SubResource("AnimationLibrary_815vn")
 }
 autoplay = "idle"
 

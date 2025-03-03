@@ -1,12 +1,12 @@
 [gd_scene load_steps=13 format=3 uid="uid://so7xny7lrgvg"]
 
-[ext_resource type="Script" path="res://Scenes/Levels/game_scene.gd" id="1_ht6pd"]
+[ext_resource type="Script" uid="uid://cylryeoigxuqr" path="res://Scenes/Levels/game_scene.gd" id="1_ht6pd"]
 [ext_resource type="PackedScene" uid="uid://cie1ej7ftah1t" path="res://Scenes/Objects/tower.tscn" id="1_layhi"]
 [ext_resource type="PackedScene" uid="uid://8dia8u2vk4hp" path="res://Scenes/Objects/enemy.tscn" id="2_hfs2f"]
-[ext_resource type="Script" path="res://Scenes/Levels/path.gd" id="2_qjaiq"]
-[ext_resource type="Script" path="res://Scenes/Objects/bullet.gd" id="3_4x23p"]
+[ext_resource type="Script" uid="uid://dxavcfheo57e5" path="res://Scenes/Levels/path.gd" id="2_qjaiq"]
+[ext_resource type="Script" uid="uid://cyc317ofdf6i3" path="res://Scenes/Objects/bullet.gd" id="3_4x23p"]
 [ext_resource type="Texture2D" uid="uid://b4lgreeffcstj" path="res://Assets/Tilesheet/towerDefense_tilesheet.png" id="4_pve8t"]
-[ext_resource type="Script" path="res://Scenes/Levels/ui.gd" id="6_eumci"]
+[ext_resource type="Script" uid="uid://b6fxc2c4kqrvi" path="res://Scenes/Levels/ui.gd" id="6_eumci"]
 [ext_resource type="Texture2D" uid="uid://beky25dr4gtfv" path="res://Assets/grass_template2.jpg" id="8_wsr7e"]
 [ext_resource type="PackedScene" uid="uid://dfv43mturl5ni" path="res://Scenes/Objects/fish.tscn" id="9_ekbcw"]
 

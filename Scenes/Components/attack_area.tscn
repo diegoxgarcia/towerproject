@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://btwjq2v7f8eur"]
 
-[ext_resource type="Script" path="res://Scenes/Components/attack_area.gd" id="1_wbhpx"]
+[ext_resource type="Script" uid="uid://cngyar56oolod" path="res://Scenes/Components/attack_area.gd" id="1_wbhpx"]
 
 [node name="AttackArea" type="Area2D"]
 collision_layer = 4
